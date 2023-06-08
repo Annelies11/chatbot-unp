@@ -1,11 +1,3 @@
-/* const inputField = document.getElementById("input");
-inputField.addEventListener("keydown", (e) => {
-  if (e.code === "Enter") {
-    let input = inputField.value;
-    inputField.value = "";
-    output(input);
-  }
-}); */
 if(!"webkitSpeechRecognition" in window){
 	alert("Speech Recognition not Available")
 } 
@@ -27,9 +19,8 @@ recognition.onresult = function (event) {
 	let textResult = event.results[0][0].transcript;
 	console.log(event.results[0][0].transcript);	
 	//document.querySelector("#result").innerHTML = textResult;
-	document.getElementById("input").value = textResult;	
-	let input = textResult;
-	output(input);
+	document.getElementById("input").value = textResult;		
+	output(textResult);
 	//setTimeout(function(){inputField.value = "";},1000);
 }
 
