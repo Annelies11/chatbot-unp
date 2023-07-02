@@ -1,6 +1,11 @@
 if(!"webkitSpeechRecognition" in window){
 	alert("Speech Recognition not Available")
 } 
+if (!"speechSynthesis" in window) {
+  alert("Sorry, your browser doesn't support text to speech!")
+}//  else {
+//   alert("yo wes")
+// }
 const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 const SpeechGrammarList = window.SpeechGrammarList || webkitSpeechGrammarList;
 const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
@@ -38,9 +43,9 @@ document.querySelector("#start").onclick = () => {
 	recognition.start();
 };
 
-document.querySelector("#stop").onclick = () => {
-	recognition.stop();
-};
+// document.querySelector("#stop").onclick = () => {
+// 	recognition.stop();
+// };
 
 function output(input) {
   let product;
@@ -53,7 +58,7 @@ function output(input) {
     .replace(/r u/g, "are you");
 
   if (compare(utterances, answers, text)) {
-    // Search for exact match in triggers
+    // mencari kalimat yang sesuai dengan pertanyaan yang diterima
     product = compare(utterances, answers, text);
   } 
   else {
